@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="Alex Thomas" content="Text Game">
+        <meta name="keywords" content="game,text,alex,BU,Boston,University">
+        <meta name="description" content="A cool text game made my freshman year of college">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+        
+        <title></title>
+        <link rel="shortcut icon" href="#" type="image/x-icon">
+        <link rel="stylesheet" type="text/css" href="stylesheet1.css">
+        <script scr="homepage.js"></script>
+    </head>
+    <body>
+        
+        <!-- Background -->
+        
+        <div id="bg"></div>
+        
+        <!-- Container -->
+        
+        <div id="container">
+            
+            <!-- header -->
+            
+            <div id="header">
+                <h1>Title</h1>
+                <ul>
+                    <li><a href="#"><p>Games</p></a></li>
+                    <li><a href="#"><p>Instructions</p></a></li>
+                    <li><a href="#"><p>Commands</p></a></li>
+                    <li><a href="#"><p>About Me</p></a></li>
+                </ul>
+                <h2 >Have Fun</h2>
+            </div>
+            
+            <!-- Body -->
+            
+            <!--
+            <div id="upperhalf">
+
+            </div>
+            -->
+            
+            <div id="gradient">
+                <div id="info">
+                    <div id="left">
+                        <h1>Homepage Functionality</h1>
+                        <br>
+                        <p>There are links you may click on to find out more about the website, but if you are looking for a little extra pizazz we have a command prompt waiting for your commands below! The commands you can use will listed to the right, and you may also type in the "help" command to see the list!</p>
+                    </div>
+                    <div id="right">
+                        <h1>Commands</h1>
+                        <br>
+                        <ul>
+                            <li><p>help</p></li>
+                            <li><p>games</p></li>
+                            <li><p>instructions</p></li>
+                            <li><p>about</p></li>
+                            <li><p>surprise</p></li>
+                            <li><p>colorful</p></li>
+                            <li><p>reset</p></li>
+                        </ul>
+                    </div>
+                    <ul>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div id="blackscreen">
+                <div id="game">
+                    <div id="text">
+                        <div id="console">
+                            <p>></p>
+                            <input id="input" type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- Javascript -->
+        
+        <script language="javascript" type="text/javascript">        
+           
+            /////////////////////////////////////
+            
+            //Input Box
+            var inp = document.getElementById("input");
+            
+            //Adds Text behind the Input Box
+            function addTextBehind() {
+                "use strict";
+                var txt = document.getElementById("input").value;
+                var p = document.createElement("p");
+                var t = document.createTextNode(txt);
+                p.append(t);
+                var elem = document.getElementById("text");     
+                elem.insertBefore(p,document.getElementById("console"));
+                document.getElementById("input").value = "";
+            }
+            
+            //Document looks out for any changes in the Input Box
+            inp.addEventListener("change", addTextBehind);
+            
+            //////////////////////////////////
+            
+            function changeWidth() {
+                var resw = document.getElementById("console").clientWidth;
+               var fixw = resw - 15;
+                document.getElementById("input").style.width = fixw + "px";
+            }
+            
+            window.addEventListener("resize",changeWidth);
+            
+            function doCommand(cmd){
+                var c = cmd.toLowerCase
+                if(c === "help") {
+                    help();
+                } else if(c === "games") {
+                    games();      
+                } else if(c === "instructions") {
+                    instructions();
+                } else if(c === "about") {
+                    about();
+                } else if(c === "surprise") {
+                    surprise();
+                } else if(c === "colorful") {
+                    colorful();    
+                } else if(c === "reset") {
+                    reset();
+                }
+            }
+        </script>  
+        
+        
+        
+    </body>
+</html>
